@@ -1,0 +1,319 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Rowenta Robots",
+        "description": "Prihlás sa rovnakým účtom a krajinou ako v appke Rowenta Robots. Roboty sú uložené podľa krajiny. Heslo sa použije len na prihlásenie a neukladá sa.",
+        "data": {
+          "email": "E-mail",
+          "password": "Heslo",
+          "country": "Krajina"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Nové prihlásenie",
+        "description": "Prihlásenie do Rowenta vypršalo. Zadaj znova heslo.",
+        "data": {
+          "email": "E-mail",
+          "password": "Heslo"
+        }
+      }
+    },
+    "error": {
+      "unsupported_country": "Táto krajina nie je v Rowenta Robots podporovaná.",
+      "invalid_auth": "Nesprávny e-mail alebo heslo.",
+      "cannot_connect": "Nepodarilo sa spojiť s cloudom Rowenta.",
+      "no_appliances": "Pre tento účet a krajinu sa nenašiel žiadny pripojený robot. Skontroluj krajinu nastavenú v appke Rowenta Robots."
+    },
+    "abort": {
+      "already_configured": "Tento účet je už nastavený.",
+      "reauth_successful": "Opätovné prihlásenie bolo úspešné.",
+      "wrong_account": "Prihlásil si sa iným účtom."
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "cloud_connected": {
+        "name": "Pripojenie do cloudu"
+      }
+    },
+    "select": {
+      "start_method": {
+        "name": "Režim čistenia",
+        "state": {
+          "smart_cleaning": "Inteligentný",
+          "auto_cleaning": "Náhodný",
+          "wall_follow": "Okraje",
+          "small_room_clean": "Malá miestnosť",
+          "mop": "Mopovanie"
+        }
+      },
+      "map_cleaning": {
+        "name": "Zobraziť čistenie na mape",
+        "state": {
+          "latest": "Najnovšie"
+        }
+      }
+    },
+    "sensor": {
+      "status": {
+        "name": "Stav",
+        "state": {
+          "cleaning": "Čistí",
+          "standby": "Pohotovosť",
+          "charging": "Nabíja sa",
+          "docking": "Vracia sa do doku",
+          "stop": "Zastavený",
+          "upgrading": "Aktualizuje sa",
+          "error": "Chyba"
+        }
+      },
+      "error": {
+        "name": "Chyba",
+        "state": {
+          "normal": "Bez chyby",
+          "left_side_brush_error": "Ľavá bočná kefa",
+          "right_side_brush_error": "Pravá bočná kefa",
+          "main_brush_error": "Hlavná kefa",
+          "left_wheel_error": "Ľavé koleso",
+          "right_wheel_error": "Pravé koleso",
+          "fan_motor_error": "Motor ventilátora",
+          "cliff_sensor_error": "Senzor schodov",
+          "off_ground_error": "Zdvihnutý zo zeme",
+          "bumper_error": "Nárazník",
+          "charging_error": "Nabíjanie",
+          "wall_sensor_error": "Senzor steny",
+          "dustbin_error": "Zásobník na prach",
+          "front_wheel_error": "Predné koliesko",
+          "no_battery_error": "Chýba batéria",
+          "low_battery_error": "Slabá batéria"
+        }
+      },
+      "cleaning_method": {
+        "name": "Aktuálny režim",
+        "state": {
+          "pause": "Pozastavený",
+          "auto_cleaning": "Náhodný",
+          "wall_follow": "Okraje",
+          "smart_cleaning": "Inteligentný",
+          "spiral": "Bodové čistenie",
+          "left_spiral": "Ľavá špirála",
+          "right_spiral": "Pravá špirála",
+          "right_bow": "Pravý cik-cak",
+          "left_bow": "Ľavý cik-cak",
+          "partial_bow": "Čiastočný cik-cak",
+          "charge_go": "Dobiť a pokračovať",
+          "mop": "Mopovanie",
+          "small_room_clean": "Malá miestnosť",
+          "back_to_dock": "Návrat do doku",
+          "sleep": "Spánok",
+          "schedule_clean": "Plánované čistenie"
+        }
+      },
+      "cleaning_area": {
+        "name": "Vyčistená plocha"
+      },
+      "cleaning_time": {
+        "name": "Čas čistenia"
+      },
+      "cleaning_start": {
+        "name": "Začiatok posledného čistenia"
+      },
+      "side_brush_wear": {
+        "name": "Opotrebenie bočnej kefy"
+      },
+      "main_brush_wear": {
+        "name": "Opotrebenie hlavnej kefy"
+      },
+      "filter_wear": {
+        "name": "Opotrebenie filtra"
+      },
+      "total_cleaning_area": {
+        "name": "Celková vyčistená plocha"
+      },
+      "total_cleaning_time": {
+        "name": "Celkový čas čistenia"
+      },
+      "total_cleanings": {
+        "name": "Počet čistení"
+      },
+      "schedules": {
+        "name": "Aktívne rozvrhy"
+      },
+      "last_cleaning": {
+        "name": "Posledné čistenie"
+      }
+    },
+    "switch": {
+      "schedule": {
+        "name": "Rozvrh {name} ({start})"
+      }
+    },
+    "image": {
+      "map": {
+        "name": "Mapa"
+      }
+    }
+  },
+  "exceptions": {
+    "not_connected": {
+      "message": "Nie je spojenie s cloudom Rowenta."
+    },
+    "invalid_fan_speed": {
+      "message": "Neznámy výkon sania: {fan_speed}."
+    },
+    "raw_needs_dict": {
+      "message": "Príkaz raw potrebuje v params JSON objekt."
+    },
+    "unknown_command": {
+      "message": "Neznámy príkaz: {command}."
+    },
+    "schedule_not_found": {
+      "message": "Rozvrh sa nenašiel: {schedule}."
+    },
+    "schedules_not_loaded": {
+      "message": "Rozvrhy robota ešte nie sú načítané. Skús to o chvíľu znova."
+    }
+  },
+  "services": {
+    "get_schedules": {
+      "name": "Zistiť rozvrhy",
+      "description": "Vráti rozvrhy čistenia robota."
+    },
+    "set_schedule": {
+      "name": "Nastaviť rozvrh",
+      "description": "Pridá nový rozvrh čistenia alebo upraví existujúci. Zmenia sa len zadané polia.",
+      "fields": {
+        "schedule": {
+          "name": "Rozvrh",
+          "description": "ID alebo názov rozvrhu na úpravu. Prázdne = pridať nový."
+        },
+        "name": {
+          "name": "Názov",
+          "description": "Názov rozvrhu."
+        },
+        "start": {
+          "name": "Začiatok",
+          "description": "Čas spustenia."
+        },
+        "days": {
+          "name": "Dni",
+          "description": "Dni v týždni."
+        },
+        "method": {
+          "name": "Režim čistenia",
+          "description": "Režim čistenia."
+        },
+        "power": {
+          "name": "Výkon sania",
+          "description": "Výkon sania."
+        },
+        "enabled": {
+          "name": "Zapnutý",
+          "description": "Či je rozvrh aktívny."
+        }
+      }
+    },
+    "delete_schedule": {
+      "name": "Zmazať rozvrh",
+      "description": "Zmaže rozvrh čistenia.",
+      "fields": {
+        "schedule": {
+          "name": "Rozvrh",
+          "description": "ID alebo názov rozvrhu."
+        }
+      }
+    }
+  },
+  "selector": {
+    "day": {
+      "options": {
+        "mon": "Pondelok",
+        "tue": "Utorok",
+        "wed": "Streda",
+        "thu": "Štvrtok",
+        "fri": "Piatok",
+        "sat": "Sobota",
+        "sun": "Nedeľa"
+      }
+    },
+    "schedule_method": {
+      "options": {
+        "smart_cleaning": "Inteligentný",
+        "auto_cleaning": "Náhodný",
+        "wall_follow": "Okraje",
+        "small_room": "Malá miestnosť"
+      }
+    },
+    "schedule_power": {
+      "options": {
+        "silent": "Tichý",
+        "normal": "Normálny",
+        "strong": "Silný"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Vyber robota",
+        "data": {
+          "robot": "Robot"
+        }
+      },
+      "menu": {
+        "title": "Rozvrhy čistenia",
+        "menu_options": {
+          "add_schedule": "Pridať rozvrh",
+          "edit_schedule": "Upraviť rozvrh",
+          "delete_schedule": "Zmazať rozvrhy"
+        }
+      },
+      "add_schedule": {
+        "title": "Pridať rozvrh",
+        "data": {
+          "name": "Názov",
+          "start": "Začiatok",
+          "days": "Dni",
+          "method": "Režim čistenia",
+          "power": "Výkon sania",
+          "enabled": "Zapnutý"
+        }
+      },
+      "edit_schedule": {
+        "title": "Upraviť rozvrh",
+        "data": {
+          "schedule": "Rozvrh"
+        }
+      },
+      "edit_schedule_form": {
+        "title": "Upraviť rozvrh",
+        "description": "{schedule}",
+        "data": {
+          "name": "Názov",
+          "start": "Začiatok",
+          "days": "Dni",
+          "method": "Režim čistenia",
+          "power": "Výkon sania",
+          "enabled": "Zapnutý"
+        }
+      },
+      "delete_schedule": {
+        "title": "Zmazať rozvrhy",
+        "description": "Vybrané rozvrhy sa z robota zmažú.",
+        "data": {
+          "schedule": "Rozvrhy"
+        }
+      }
+    },
+    "error": {
+      "no_days": "Vyber aspoň jeden deň.",
+      "not_connected": "Nie je spojenie s cloudom Rowenta.",
+      "schedules_not_loaded": "Rozvrhy robota ešte nie sú načítané. Skús to o chvíľu znova."
+    },
+    "abort": {
+      "not_loaded": "Integrácia nie je načítaná.",
+      "schedule_not_found": "Rozvrh už neexistuje."
+    }
+  }
+}

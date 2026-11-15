@@ -1,0 +1,22 @@
+{
+  "domain": "rowenta",
+  "name": "Rowenta Robots",
+  "codeowners": [
+    "@jose1711"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/jose1711/ha-rowenta",
+  "integration_type": "hub",
+  "iot_class": "cloud_push",
+  "issue_tracker": "https://github.com/jose1711/ha-rowenta/issues",
+  "loggers": [
+    "custom_components.rowenta",
+    "paho"
+  ],
+  "requirements": [
+    "paho-mqtt>=2.0.0",
+    "Pillow>=10.0.0"
+  ],
+  "version": "0.7.3"
+}

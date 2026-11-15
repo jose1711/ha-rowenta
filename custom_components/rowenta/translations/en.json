@@ -1,0 +1,319 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Rowenta Robots",
+        "description": "Sign in with the same account and country as in the Rowenta Robots app. Robots are stored per country. The password is only used to sign in and is not saved.",
+        "data": {
+          "email": "Email",
+          "password": "Password",
+          "country": "Country"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Sign in again",
+        "description": "The Rowenta login has expired. Enter your password again.",
+        "data": {
+          "email": "Email",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "unsupported_country": "This country is not supported by Rowenta Robots.",
+      "invalid_auth": "Wrong email or password.",
+      "cannot_connect": "Could not reach the Rowenta cloud.",
+      "no_appliances": "No connected robot found for this account and country. Check the country selected in the Rowenta Robots app."
+    },
+    "abort": {
+      "already_configured": "This account is already configured.",
+      "reauth_successful": "Signed in again successfully.",
+      "wrong_account": "You signed in with a different account."
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "cloud_connected": {
+        "name": "Cloud connection"
+      }
+    },
+    "select": {
+      "start_method": {
+        "name": "Cleaning mode",
+        "state": {
+          "smart_cleaning": "Smart",
+          "auto_cleaning": "Random",
+          "wall_follow": "Edges",
+          "small_room_clean": "Small room",
+          "mop": "Mopping"
+        }
+      },
+      "map_cleaning": {
+        "name": "Show cleaning on map",
+        "state": {
+          "latest": "Latest"
+        }
+      }
+    },
+    "sensor": {
+      "status": {
+        "name": "Status",
+        "state": {
+          "cleaning": "Cleaning",
+          "standby": "Standby",
+          "charging": "Charging",
+          "docking": "Returning to dock",
+          "stop": "Stopped",
+          "upgrading": "Updating",
+          "error": "Error"
+        }
+      },
+      "error": {
+        "name": "Error",
+        "state": {
+          "normal": "No error",
+          "left_side_brush_error": "Left side brush",
+          "right_side_brush_error": "Right side brush",
+          "main_brush_error": "Main brush",
+          "left_wheel_error": "Left wheel",
+          "right_wheel_error": "Right wheel",
+          "fan_motor_error": "Fan motor",
+          "cliff_sensor_error": "Cliff sensor",
+          "off_ground_error": "Lifted off the ground",
+          "bumper_error": "Bumper",
+          "charging_error": "Charging",
+          "wall_sensor_error": "Wall sensor",
+          "dustbin_error": "Dust bin",
+          "front_wheel_error": "Front wheel",
+          "no_battery_error": "No battery",
+          "low_battery_error": "Low battery"
+        }
+      },
+      "cleaning_method": {
+        "name": "Cleaning mode (current)",
+        "state": {
+          "pause": "Paused",
+          "auto_cleaning": "Random",
+          "wall_follow": "Edges",
+          "smart_cleaning": "Smart",
+          "spiral": "Spot",
+          "left_spiral": "Left spiral",
+          "right_spiral": "Right spiral",
+          "right_bow": "Right zigzag",
+          "left_bow": "Left zigzag",
+          "partial_bow": "Partial zigzag",
+          "charge_go": "Recharge and resume",
+          "mop": "Mopping",
+          "small_room_clean": "Small room",
+          "back_to_dock": "Returning to dock",
+          "sleep": "Sleep",
+          "schedule_clean": "Scheduled cleaning"
+        }
+      },
+      "cleaning_area": {
+        "name": "Cleaned area"
+      },
+      "cleaning_time": {
+        "name": "Cleaning time"
+      },
+      "cleaning_start": {
+        "name": "Last cleaning start"
+      },
+      "side_brush_wear": {
+        "name": "Side brush wear"
+      },
+      "main_brush_wear": {
+        "name": "Main brush wear"
+      },
+      "filter_wear": {
+        "name": "Filter wear"
+      },
+      "total_cleaning_area": {
+        "name": "Total cleaned area"
+      },
+      "total_cleaning_time": {
+        "name": "Total cleaning time"
+      },
+      "total_cleanings": {
+        "name": "Total cleanings"
+      },
+      "schedules": {
+        "name": "Active schedules"
+      },
+      "last_cleaning": {
+        "name": "Last cleaning"
+      }
+    },
+    "switch": {
+      "schedule": {
+        "name": "Schedule {name} ({start})"
+      }
+    },
+    "image": {
+      "map": {
+        "name": "Map"
+      }
+    }
+  },
+  "exceptions": {
+    "not_connected": {
+      "message": "Not connected to the Rowenta cloud."
+    },
+    "invalid_fan_speed": {
+      "message": "Unknown suction power: {fan_speed}."
+    },
+    "raw_needs_dict": {
+      "message": "The raw command needs a JSON object in params."
+    },
+    "unknown_command": {
+      "message": "Unknown command: {command}."
+    },
+    "schedule_not_found": {
+      "message": "Schedule not found: {schedule}."
+    },
+    "schedules_not_loaded": {
+      "message": "The robot's schedules have not been loaded yet. Try again in a moment."
+    }
+  },
+  "services": {
+    "get_schedules": {
+      "name": "Get schedules",
+      "description": "Returns the robot's cleaning schedules."
+    },
+    "set_schedule": {
+      "name": "Set schedule",
+      "description": "Adds a new cleaning schedule or changes an existing one. Only the given fields are changed.",
+      "fields": {
+        "schedule": {
+          "name": "Schedule",
+          "description": "ID or name of the schedule to change. Leave empty to add a new one."
+        },
+        "name": {
+          "name": "Name",
+          "description": "Name of the schedule."
+        },
+        "start": {
+          "name": "Start",
+          "description": "Start time."
+        },
+        "days": {
+          "name": "Days",
+          "description": "Days of the week."
+        },
+        "method": {
+          "name": "Cleaning mode",
+          "description": "Cleaning mode."
+        },
+        "power": {
+          "name": "Suction power",
+          "description": "Suction power."
+        },
+        "enabled": {
+          "name": "Enabled",
+          "description": "Whether the schedule is active."
+        }
+      }
+    },
+    "delete_schedule": {
+      "name": "Delete schedule",
+      "description": "Deletes a cleaning schedule.",
+      "fields": {
+        "schedule": {
+          "name": "Schedule",
+          "description": "ID or name of the schedule."
+        }
+      }
+    }
+  },
+  "selector": {
+    "day": {
+      "options": {
+        "mon": "Monday",
+        "tue": "Tuesday",
+        "wed": "Wednesday",
+        "thu": "Thursday",
+        "fri": "Friday",
+        "sat": "Saturday",
+        "sun": "Sunday"
+      }
+    },
+    "schedule_method": {
+      "options": {
+        "smart_cleaning": "Smart",
+        "auto_cleaning": "Random",
+        "wall_follow": "Edges",
+        "small_room": "Small room"
+      }
+    },
+    "schedule_power": {
+      "options": {
+        "silent": "Silent",
+        "normal": "Normal",
+        "strong": "Strong"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Choose robot",
+        "data": {
+          "robot": "Robot"
+        }
+      },
+      "menu": {
+        "title": "Cleaning schedules",
+        "menu_options": {
+          "add_schedule": "Add schedule",
+          "edit_schedule": "Edit schedule",
+          "delete_schedule": "Delete schedules"
+        }
+      },
+      "add_schedule": {
+        "title": "Add schedule",
+        "data": {
+          "name": "Name",
+          "start": "Start",
+          "days": "Days",
+          "method": "Cleaning mode",
+          "power": "Suction power",
+          "enabled": "Enabled"
+        }
+      },
+      "edit_schedule": {
+        "title": "Edit schedule",
+        "data": {
+          "schedule": "Schedule"
+        }
+      },
+      "edit_schedule_form": {
+        "title": "Edit schedule",
+        "description": "{schedule}",
+        "data": {
+          "name": "Name",
+          "start": "Start",
+          "days": "Days",
+          "method": "Cleaning mode",
+          "power": "Suction power",
+          "enabled": "Enabled"
+        }
+      },
+      "delete_schedule": {
+        "title": "Delete schedules",
+        "description": "The selected schedules will be deleted from the robot.",
+        "data": {
+          "schedule": "Schedules"
+        }
+      }
+    },
+    "error": {
+      "no_days": "Select at least one day.",
+      "not_connected": "Not connected to the Rowenta cloud.",
+      "schedules_not_loaded": "The robot's schedules have not been loaded yet. Try again in a moment."
+    },
+    "abort": {
+      "not_loaded": "The integration is not loaded.",
+      "schedule_not_found": "The schedule no longer exists."
+    }
+  }
+}

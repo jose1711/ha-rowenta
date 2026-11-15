@@ -1,0 +1,56 @@
+get_schedules:
+  target:
+    entity:
+      integration: rowenta
+      domain: vacuum
+
+set_schedule:
+  target:
+    entity:
+      integration: rowenta
+      domain: vacuum
+  fields:
+    schedule:
+      example: "Rozvrh"
+      selector:
+        text:
+    name:
+      example: "Morning"
+      selector:
+        text:
+    start:
+      example: "09:00"
+      selector:
+        time:
+    days:
+      example: ["mon", "wed", "sat"]
+      selector:
+        select:
+          multiple: true
+          translation_key: day
+          options: [mon, tue, wed, thu, fri, sat, sun]
+    method:
+      selector:
+        select:
+          translation_key: schedule_method
+          options: [smart_cleaning, auto_cleaning, wall_follow, small_room]
+    power:
+      selector:
+        select:
+          translation_key: schedule_power
+          options: [silent, normal, strong]
+    enabled:
+      selector:
+        boolean:
+
+delete_schedule:
+  target:
+    entity:
+      integration: rowenta
+      domain: vacuum
+  fields:
+    schedule:
+      required: true
+      example: "Rozvrh"
+      selector:
+        text:
